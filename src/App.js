@@ -1,3 +1,4 @@
+import FeaturedProducts from "./components/FeaturedProducts";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 
@@ -7,6 +8,7 @@ function App() {
       
     <Navbar />
     <Hero />
+    <FeaturedProducts />
 
     </div>
   );
