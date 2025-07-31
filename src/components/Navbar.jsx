@@ -1,28 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+const sections = [
+  { id: 'home', label: 'Начало' },
+  { id: 'models', label: 'Модели' },
+  { id: 'gallery', label: 'Галерия' },
+  { id: 'contact', label: 'Контакти' },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 3;
+
+      let current = 'home';
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = section.id;
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // set on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="w-full px-6 py-4 bg-white shadow-md relative z-50">
+    <nav className="sticky top-0 bg-white shadow-md z-50 px-6 py-4">
       <div className="flex items-center justify-between">
         {/* Logo */}
-       <a
-  href="#"
-  className="text-2xl font-bold text-gray-900 select-none cursor-pointer"
->
-  <span className="text-black">Kicks</span>
-  <span className="text-indigo-600">Zone</span>
-</a>
+        <a
+          href="#home"
+          className="text-2xl font-bold text-gray-900 select-none cursor-pointer"
+          onClick={closeMenu}
+        >
+          <span className="text-black">Kicks</span>
+          <span className="text-indigo-600">Zone</span>
+        </a>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-8 text-gray-700 font-medium">
-          <li className="hover:text-black cursor-pointer">Начало</li>
-          <li className="hover:text-black cursor-pointer">Модели</li>
-          <li className="hover:text-black cursor-pointer">Галерия</li>
-          <li className="hover:text-black cursor-pointer">Контакти</li>
+        <ul className="hidden md:flex gap-8 font-medium">
+          {sections.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={closeMenu}
+                className={`cursor-pointer transition-colors duration-300 ${
+                  activeSection === id ? 'text-indigo-600 font-semibold' : 'text-gray-700 hover:text-black'
+                }`}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
 
         {/* Hamburger Icon */}
@@ -30,6 +68,7 @@ const Navbar = () => {
           <button
             onClick={toggleMenu}
             className="text-gray-800 text-2xl focus:outline-none"
+            aria-label="Toggle menu"
           >
             {isOpen ? '✕' : '☰'}
           </button>
@@ -42,11 +81,20 @@ const Navbar = () => {
           isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
         }`}
       >
-        <ul className="flex flex-col items-center gap-4 py-4 text-gray-700 font-medium">
-          <li className="hover:text-black cursor-pointer">Начало</li>
-          <li className="hover:text-black cursor-pointer">Модели</li>
-          <li className="hover:text-black cursor-pointer">Галерия</li>
-          <li className="hover:text-black cursor-pointer">Контакти</li>
+        <ul className="flex flex-col items-center gap-4 py-4 font-medium text-gray-700">
+          {sections.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`#${id}`}
+                onClick={closeMenu}
+                className={`cursor-pointer transition-colors duration-300 ${
+                  activeSection === id ? 'text-indigo-600 font-semibold' : 'hover:text-black'
+                }`}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
