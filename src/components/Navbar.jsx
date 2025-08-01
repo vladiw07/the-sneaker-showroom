@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const sections = [
   { id: 'home', label: 'Начало' },
@@ -10,27 +10,36 @@ const sections = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const scrollTimeout = useRef(null);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 3;
-
-      let current = 'home';
-      for (const section of sections) {
-        const el = document.getElementById(section.id);
-        if (el && el.offsetTop <= scrollPos) {
-          current = section.id;
-        }
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current);
       }
-      setActiveSection(current);
+      scrollTimeout.current = setTimeout(() => {
+        const scrollPos = window.scrollY + window.innerHeight / 3;
+
+        let current = 'home';
+        for (const section of sections) {
+          const el = document.getElementById(section.id);
+          if (el && el.offsetTop <= scrollPos) {
+            current = section.id;
+          }
+        }
+        setActiveSection(current);
+      }, 100); // debounce timeout 100ms
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // set on mount
-    return () => window.removeEventListener('scroll', handleScroll);
+    handleScroll(); // set active on mount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current);
+    };
   }, []);
 
   return (

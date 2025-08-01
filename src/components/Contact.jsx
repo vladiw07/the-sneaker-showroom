@@ -1,13 +1,13 @@
 import React from 'react';
 
-function Contact() {
+const Contact = React.memo(() => {
   return (
     <section className="w-full bg-gray-50 py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-lg p-8 sm:p-12">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-8 text-center">
           Свържи се с нас
         </h2>
-        <form className="space-y-6">
+        <form className="space-y-6" noValidate>
           <div>
             <label htmlFor="name" className="block text-gray-800 font-semibold mb-2 text-lg">
               Име
@@ -16,6 +16,7 @@ function Contact() {
               type="text"
               id="name"
               placeholder="Вашето име"
+              autoComplete="name"
               className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
               required
             />
@@ -29,6 +30,7 @@ function Contact() {
               type="email"
               id="email"
               placeholder="you@example.com"
+              autoComplete="email"
               className="w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-4 focus:ring-indigo-300 transition"
               required
             />
@@ -57,6 +59,6 @@ function Contact() {
       </div>
     </section>
   );
-}
+});
 
 export default Contact;

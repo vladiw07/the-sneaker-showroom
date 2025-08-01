@@ -1,29 +1,31 @@
-// FeaturedProducts.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import urbanImage from '../assets/images/urban-1.jpg';
 import chillImage from '../assets/images/urban-2.png';
 import streetImage from '../assets/images/urban-3.jpg';
 
-const FeaturedProducts = () => {
-  const features = [
-    {
-      title: 'Urban Flow',
-      description: 'Стил, който отразява динамиката на градските улици.',
-      image: urbanImage,
-    },
-    {
-      title: 'City Rhythm',
-      description: 'Нека всяка твоя крачка бъде израз на твоя стил.',
-      image: chillImage,
-    },
-    {
-      title: 'Street Freedom',
-      description: 'Комфорт и индивидуалност за твоето ежедневие.',
-      image: streetImage,
-    },
-  ];
+const features = [
+  {
+    title: 'Urban Flow',
+    description: 'Стил, който отразява динамиката на градските улици.',
+    image: urbanImage,
+    objectPosition: '10% 90%',
+  },
+  {
+    title: 'City Rhythm',
+    description: 'Нека всяка твоя крачка бъде израз на твоя стил.',
+    image: chillImage,
+    objectPosition: '80% 30%',
+  },
+  {
+    title: 'Street Freedom',
+    description: 'Комфорт и индивидуалност за твоето ежедневие.',
+    image: streetImage,
+    objectPosition: '80% 30%',
+  },
+];
 
+const FeaturedProducts = React.memo(() => {
   return (
     <section className="w-full px-6 py-24 bg-gradient-to-br from-indigo-50 via-white to-indigo-50">
       <div className="max-w-7xl mx-auto">
@@ -45,13 +47,9 @@ const FeaturedProducts = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={`w-full h-72 md:h-64 object-cover rounded-t-xl transform hover:scale-105 transition-transform duration-500 ${
-                    index === 0
-                      ? 'object-center md:object-[10%_90%]'
-                      : index === 1
-                      ? 'object-center md:object-[80%_30%]'
-                      : 'object-center md:object-[80%_30%]'
-                  }`}
+                  loading="lazy"
+                  style={{ objectPosition: item.objectPosition }}
+                  className="w-full h-72 md:h-64 object-cover rounded-t-xl transform hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
@@ -67,6 +65,6 @@ const FeaturedProducts = () => {
       </div>
     </section>
   );
-};
+});
 
 export default FeaturedProducts;

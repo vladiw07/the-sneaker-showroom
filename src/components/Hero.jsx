@@ -1,11 +1,10 @@
-// Hero.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import heroImage from '../assets/images/pexels-aj-collins-artistry-1772576281-33232901.jpg';
 
-function Hero() {
+const Hero = React.memo(() => {
   return (
-    <section className="w-full relative bg-gradient-to-br from-white via-indigo-50 to-indigo-100 py-24 px-6 overflow-hidden">
+    <section className="w-full relative bg-gradient-to-br from-white via-indigo-50 to-indigo-100 py-8 px-6 overflow-hidden">
       {/* Decorative blur background */}
       <div className="absolute -top-20 -left-20 w-96 h-96 bg-indigo-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
 
@@ -45,12 +44,13 @@ function Hero() {
           <img
             src={heroImage}
             alt="Модерен кец"
+            loading="lazy"
             className="w-full max-h-[500px] object-cover rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
           />
         </motion.div>
       </div>
     </section>
   );
-}
+});
 
 export default Hero;

@@ -1,4 +1,3 @@
-// WhyUs.jsx
 import React from 'react';
 import { FaBolt, FaCrown, FaUsers } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -17,25 +16,25 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
 };
 
-const WhyUs = () => {
-  const features = [
-    {
-      icon: <FaBolt className="text-indigo-600 text-4xl mb-6" />,
-      title: 'Енергия и израз',
-      description: 'Дизайни, вдъхновени от уличната култура и индивидуалността на всяко движение.',
-    },
-    {
-      icon: <FaCrown className="text-indigo-600 text-4xl mb-6" />,
-      title: 'Ограничени серии',
-      description: 'Всеки модел е част от селектирана серия, за да подчертае твоята уникалност.',
-    },
-    {
-      icon: <FaUsers className="text-indigo-600 text-4xl mb-6" />,
-      title: 'Общност от стил',
-      description: 'Свързваме хора с визия и отношение към градската култура.',
-    },
-  ];
+const features = [
+  {
+    icon: <FaBolt className="text-indigo-600 text-4xl mb-6" />,
+    title: 'Енергия и израз',
+    description: 'Дизайни, вдъхновени от уличната култура и индивидуалността на всяко движение.',
+  },
+  {
+    icon: <FaCrown className="text-indigo-600 text-4xl mb-6" />,
+    title: 'Ограничени серии',
+    description: 'Всеки модел е част от селектирана серия, за да подчертае твоята уникалност.',
+  },
+  {
+    icon: <FaUsers className="text-indigo-600 text-4xl mb-6" />,
+    title: 'Общност от стил',
+    description: 'Свързваме хора с визия и отношение към градската култура.',
+  },
+];
 
+const WhyUs = React.memo(() => {
   return (
     <section className="bg-indigo-50 py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
@@ -64,6 +63,6 @@ const WhyUs = () => {
       </div>
     </section>
   );
-};
+});
 
 export default WhyUs;
