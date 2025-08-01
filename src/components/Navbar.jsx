@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const sections = [
   { id: 'home', label: 'Начало' },
   { id: 'models', label: 'Модели' },
-  { id: 'gallery', label: 'Галерия' },
+  { id: 'gallery', label: 'За нас' },
   { id: 'contact', label: 'Контакти' },
 ];
 

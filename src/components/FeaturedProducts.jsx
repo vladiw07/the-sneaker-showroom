@@ -1,3 +1,4 @@
+// FeaturedProducts.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import urbanImage from '../assets/images/urban-1.jpg';
@@ -8,25 +9,25 @@ const FeaturedProducts = () => {
   const features = [
     {
       title: 'Urban Flow',
-      description: 'Когато стилът срещне улицата.',
+      description: 'Стил, който отразява динамиката на градските улици.',
       image: urbanImage,
     },
     {
       title: 'City Rhythm',
-      description: 'Изрази себе си с всяка крачка.',
+      description: 'Нека всяка твоя крачка бъде израз на твоя стил.',
       image: chillImage,
     },
     {
       title: 'Street Freedom',
-      description: 'Комфорт и характер за ежедневието.',
+      description: 'Комфорт и индивидуалност за твоето ежедневие.',
       image: streetImage,
     },
   ];
 
   return (
-    <section className="w-full px-6 py-24 bg-white">
+    <section className="w-full px-6 py-24 bg-gradient-to-br from-indigo-50 via-white to-indigo-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center mb-12">
           Избрани визии
         </h2>
 
@@ -38,7 +39,7 @@ const FeaturedProducts = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 bg-white"
+              className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white"
             >
               <div className="overflow-hidden">
                 <img
@@ -46,19 +47,19 @@ const FeaturedProducts = () => {
                   alt={item.title}
                   className={`w-full h-72 md:h-64 object-cover rounded-t-xl transform hover:scale-105 transition-transform duration-500 ${
                     index === 0
-                      ? 'object-[center_60%] md:object-center'
+                      ? 'object-center md:object-[10%_90%]'
                       : index === 1
-                      ? 'object-[center_40%] md:object-center'
-                      : 'object-center'
+                      ? 'object-center md:object-[80%_30%]'
+                      : 'object-center md:object-[80%_30%]'
                   }`}
                 />
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-indigo-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-indigo-700">{item.description}</p>
               </div>
             </motion.div>
           ))}
