@@ -27,9 +27,9 @@ const features = [
 
 const FeaturedProducts = React.memo(() => {
   return (
-    <section className="w-full px-6 py-24 bg-gradient-to-br from-indigo-50 via-white to-indigo-50">
+    <section className="w-full px-6 py-24 bg-gradient-to-br from-green-50 via-white to-green-50">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-900 text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-900 text-center mb-12">
           Избрани визии
         </h2>
 
@@ -54,10 +54,10 @@ const FeaturedProducts = React.memo(() => {
               </div>
 
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-indigo-900 mb-2">
+                <h3 className="text-xl font-semibold text-green-900 mb-2">
                   {item.title}
                 </h3>
-                <p className="text-indigo-700">{item.description}</p>
+                <p className="text-green-700">{item.description}</p>
               </div>
             </motion.div>
           ))}

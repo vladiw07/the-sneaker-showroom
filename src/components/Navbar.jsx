@@ -48,11 +48,12 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#home"
-          className="text-2xl font-bold text-gray-900 select-none cursor-pointer"
+          className="text-2xl font-bold select-none cursor-pointer"
           onClick={closeMenu}
         >
-          <span className="text-black">Kicks</span>
-          <span className="text-indigo-600">Zone</span>
+          <span className="text-green-600">Bul</span>
+<span className="bg-gradient-to-r from-green-600 to-emerald-400 text-transparent bg-clip-text">Shoes</span>
+
         </a>
 
         {/* Desktop Nav */}
@@ -63,8 +64,11 @@ const Navbar = () => {
                 href={`#${id}`}
                 onClick={closeMenu}
                 className={`cursor-pointer transition-colors duration-300 ${
-                  activeSection === id ? 'text-indigo-600 font-semibold' : 'text-gray-700 hover:text-black'
-                }`}
+  activeSection === id
+    ? 'text-green-600 font-semibold'
+    : 'text-gray-700 hover:text-green-800'
+}`}
+
               >
                 {label}
               </a>
@@ -87,7 +91,9 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div
         className={`md:hidden absolute top-full left-0 w-full bg-white shadow-md transition-all duration-300 ease-in-out origin-top transform ${
-          isOpen ? 'scale-y-100 opacity-100' : 'scale-y-0 opacity-0 pointer-events-none'
+          isOpen
+            ? 'scale-y-100 opacity-100'
+            : 'scale-y-0 opacity-0 pointer-events-none'
         }`}
       >
         <ul className="flex flex-col items-center gap-4 py-4 font-medium text-gray-700">
@@ -97,8 +103,11 @@ const Navbar = () => {
                 href={`#${id}`}
                 onClick={closeMenu}
                 className={`cursor-pointer transition-colors duration-300 ${
-                  activeSection === id ? 'text-indigo-600 font-semibold' : 'hover:text-black'
-                }`}
+  activeSection === id
+    ? 'text-green-600 font-semibold'
+    : 'text-gray-700 hover:text-green-800'
+}`}
+
               >
                 {label}
               </a>

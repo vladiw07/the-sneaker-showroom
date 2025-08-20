@@ -18,17 +18,17 @@ const itemVariants = {
 
 const features = [
   {
-    icon: <FaBolt className="text-indigo-600 text-4xl mb-6" />,
+    icon: <FaBolt className="text-green-600 text-4xl mb-6" />,
     title: 'Енергия и израз',
     description: 'Дизайни, вдъхновени от уличната култура и индивидуалността на всяко движение.',
   },
   {
-    icon: <FaCrown className="text-indigo-600 text-4xl mb-6" />,
+    icon: <FaCrown className="text-green-600 text-4xl mb-6" />,
     title: 'Ограничени серии',
     description: 'Всеки модел е част от селектирана серия, за да подчертае твоята уникалност.',
   },
   {
-    icon: <FaUsers className="text-indigo-600 text-4xl mb-6" />,
+    icon: <FaUsers className="text-green-600 text-4xl mb-6" />,
     title: 'Общност от стил',
     description: 'Свързваме хора с визия и отношение към градската култура.',
   },
@@ -36,9 +36,9 @@ const features = [
 
 const WhyUs = React.memo(() => {
   return (
-    <section className="bg-indigo-50 py-24 px-6">
+    <section className="bg-green-50 py-24 px-6">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-indigo-900 mb-12">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-green-900 mb-12">
           Стил с мисия
         </h2>
 
@@ -55,8 +55,8 @@ const WhyUs = React.memo(() => {
               variants={itemVariants}
             >
               <div className="mb-4">{item.icon}</div>
-              <h3 className="text-xl font-semibold text-indigo-900 mb-2">{item.title}</h3>
-              <p className="text-indigo-700 max-w-xs">{item.description}</p>
+              <h3 className="text-xl font-semibold text-green-900 mb-2">{item.title}</h3>
+              <p className="text-green-700 max-w-xs">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

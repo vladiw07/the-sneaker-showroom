@@ -4,9 +4,9 @@ import heroImage from '../assets/images/pexels-aj-collins-artistry-1772576281-33
 
 const Hero = React.memo(() => {
   return (
-    <section className="w-full relative bg-gradient-to-br from-white via-indigo-50 to-indigo-100 py-8 px-6 overflow-hidden">
+    <section className="w-full relative bg-gradient-to-br from-white via-green-50 to-green-100 py-8 px-6 overflow-hidden">
       {/* Decorative blur background */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-indigo-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
+      <div className="absolute -top-20 -left-20 w-96 h-96 bg-green-200 rounded-full filter blur-3xl opacity-20 z-0"></div>
 
       <div className="relative max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-16 z-10">
         {/* Text content */}
@@ -17,15 +17,15 @@ const Hero = React.memo(() => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           viewport={{ once: true }}
         >
-          <h1 className="text-5xl font-extrabold text-indigo-900 leading-tight tracking-tight">
-            Открий своя <span className="text-indigo-600">стил</span>
+          <h1 className="text-5xl font-extrabold text-green-900 leading-tight tracking-tight">
+            Открий своя <span className="text-green-600">стил</span>
           </h1>
-          <p className="mt-6 text-lg text-indigo-700 max-w-md leading-relaxed">
+          <p className="mt-6 text-lg text-green-700 max-w-md leading-relaxed">
             Най-новите модели кецове за твоето ежедневие.<br />
             Модерни, удобни и създадени да се открояват.
           </p>
           <motion.button
-            className="mt-8 px-7 py-3 bg-indigo-900 text-white rounded-full hover:bg-indigo-700 hover:shadow-lg transition-all duration-300"
+            className="mt-8 px-7 py-3 bg-green-700 text-white rounded-full hover:bg-green-600 hover:shadow-lg transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
