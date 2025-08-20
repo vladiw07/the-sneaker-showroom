@@ -60,7 +60,7 @@ const Footer = React.memo(() => {
       </div>
 
       <div className="mt-10 text-center text-slate-500 text-sm">
-        © {new Date().getFullYear()} BullShoes. Всички права запазени.
+        © {new Date().getFullYear()} BulShoes. Всички права запазени.
       </div>
     </footer>
   );
