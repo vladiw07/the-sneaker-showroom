@@ -7,7 +7,7 @@ const Footer = React.memo(() => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         {/* Logo */}
         <div className="text-2xl font-extrabold text-white select-none cursor-default tracking-tight">
-          Bull<span className="text-green-500">Shoes</span>
+          Bul<span className="text-green-500">Shoes</span>
         </div>
 
         {/* Navigation */}
